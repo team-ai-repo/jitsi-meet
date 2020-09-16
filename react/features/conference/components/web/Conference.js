@@ -190,26 +190,27 @@ class Conference extends AbstractConference<Props, *> {
 
         return (
             <div
-                className = { _layoutClassName }
-                id = 'videoconference_page'
-                onMouseMove = { this._onShowToolbar }>
+                className={_layoutClassName}
+                id='videoconference_page'
+                onMouseMove={this._onShowToolbar}>
 
                 <Notice />
-                <div id = 'videospace'>
+                <div id='videospace'>
                     <LargeVideo />
                     <KnockingParticipantList />
-                    <Filmstrip filmstripOnly = { filmstripOnly } />
-                    { hideLabels || <Labels /> }
+                    <Filmstrip filmstripOnly={filmstripOnly} />
+                    {hideLabels || <Labels />}
                 </div>
 
-                { filmstripOnly || _showPrejoin || _isLobbyScreenVisible || <Toolbox /> }
-                { filmstripOnly || <Chat /> }
+                {/* { filmstripOnly || _showPrejoin || _isLobbyScreenVisible || <Toolbox /> } */}
 
-                { this.renderNotificationsContainer() }
+                {/* { filmstripOnly || <Chat /> } */}
+
+                { this.renderNotificationsContainer()}
 
                 <CalleeInfoContainer />
 
-                { !filmstripOnly && _showPrejoin && <Prejoin />}
+                {/* { !filmstripOnly && _showPrejoin && <Prejoin />} */}
             </div>
         );
     }
