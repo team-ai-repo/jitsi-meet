@@ -2,7 +2,11 @@
 
 import { ReducerRegistry } from '../base/redux';
 
-import { SET_DYNAMIC_BRANDING_DATA, SET_DYNAMIC_BRANDING_READY } from './actionTypes';
+import {
+    SET_DYNAMIC_BRANDING_DATA,
+    SET_DYNAMIC_BRANDING_FAILED,
+    SET_DYNAMIC_BRANDING_READY
+} from './actionTypes';
 
 /**
  * The name of the redux store/state property which is the root of the redux
@@ -11,12 +15,71 @@ import { SET_DYNAMIC_BRANDING_DATA, SET_DYNAMIC_BRANDING_READY } from './actionT
 const STORE_NAME = 'features/dynamic-branding';
 
 const DEFAULT_STATE = {
+    /**
+     * The custom background color for the LargeVideo.
+     *
+     * @public
+     * @type {string}
+     */
     backgroundColor: '',
+
+    /**
+     * The custom background image used on the LargeVideo.
+     *
+     * @public
+     * @type {string}
+     */
     backgroundImageUrl: '',
+
+    /**
+     * Flag indicating that the logo (JitsiWatermark) can be displayed.
+     * This is used in order to avoid image flickering.
+     *
+     * @public
+     * @type {boolean}
+     */
     customizationReady: false,
+
+    /**
+     * Flag indicating that the dynamic branding data request has failed.
+     * When the request fails there is no logo (JitsiWatermark) displayed.
+     *
+     * @public
+     * @type {boolean}
+     */
+    customizationFailed: false,
+
+    /**
+     * The custom invite domain.
+     *
+     * @public
+     * @type {string}
+     */
     inviteDomain: '',
+
+    /**
+     * The custom url used when the user clicks the logo.
+     *
+     * @public
+     * @type {string}
+     */
     logoClickUrl: '',
-    logoImageUrl: ''
+
+    /**
+     * The custom logo (JitisWatermark).
+     *
+     * @public
+     * @type {string}
+     */
+    logoImageUrl: '',
+
+    /**
+     * Flag used to signal if the app should use a custom logo or not
+     *
+     * @public
+     * @type {boolean}
+     */
+    useDynamicBrandingData: false
 };
 
 /**
@@ -33,7 +96,17 @@ ReducerRegistry.register(STORE_NAME, (state = DEFAULT_STATE, action) => {
             inviteDomain,
             logoClickUrl,
             logoImageUrl,
-            customizationReady: true
+            customizationFailed: false,
+            customizationReady: true,
+            useDynamicBrandingData: true
+        };
+    }
+    case SET_DYNAMIC_BRANDING_FAILED: {
+        return {
+            ...state,
+            customizationReady: true,
+            customizationFailed: true,
+            useDynamicBrandingData: true
         };
     }
     case SET_DYNAMIC_BRANDING_READY:
@@ -41,7 +114,6 @@ ReducerRegistry.register(STORE_NAME, (state = DEFAULT_STATE, action) => {
             ...state,
             customizationReady: true
         };
-
     }
 
     return state;
