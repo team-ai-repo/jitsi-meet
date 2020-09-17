@@ -368,6 +368,8 @@ class Conference extends AbstractConference<Props, *> {
      * @returns {React$Element}
      */
     _renderNotificationsContainer() {
+      return null;
+      /*
         const notificationsStyle = {};
 
         // In the landscape mode (wide) there's problem with notifications being
@@ -391,6 +393,7 @@ class Conference extends AbstractConference<Props, *> {
                 style: notificationsStyle
             }
         );
+      */
     }
 
     _setToolboxVisible: (boolean) => void;

@@ -114,6 +114,8 @@ class ConferenceNotification extends Component<Props, State> {
      * @inheritdoc
      */
     render() {
+      return null;
+      /*
         const { event } = this.state;
         const { t } = this.props;
 
@@ -166,6 +168,8 @@ class ConferenceNotification extends Component<Props, State> {
         }
 
         return null;
+      
+      */
     }
 
     _getNotificationContentStyle: () => Array<Object>;

@@ -96,6 +96,8 @@ class Toolbox extends PureComponent<Props> {
      * @returns {React$Node}
      */
     _renderToolbar() {
+      return null;
+        /*
         const { _styles } = this.props;
         const { buttonStyles, buttonStylesBorderless, hangupButtonStyles, toggledButtonStyles } = _styles;
 
@@ -120,6 +122,7 @@ class Toolbox extends PureComponent<Props> {
                     toggledStyles = { toggledButtonStyles } />
             </View>
         );
+      */
     }
 }
 

@@ -86,6 +86,9 @@ class Filmstrip extends Component<Props> {
      * @returns {ReactElement}
      */
     render() {
+      return null;
+      
+      /*
         const { _aspectRatio, _enabled, _participants, _visible } = this.props;
 
         if (!_enabled) {
@@ -133,6 +136,8 @@ class Filmstrip extends Component<Props> {
                 }
             </Container>
         );
+                                 
+                                 */
     }
 
     /**

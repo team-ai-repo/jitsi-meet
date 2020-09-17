@@ -47,6 +47,8 @@ class NavigationBar extends Component<Props> {
      * @inheritdoc
      */
     render() {
+        return null;
+      /*
         if (!this.props._visible) {
             return null;
         }
@@ -84,6 +86,7 @@ class NavigationBar extends Component<Props> {
                 </View>
             </View>
         ];
+       */
     }
 
 }

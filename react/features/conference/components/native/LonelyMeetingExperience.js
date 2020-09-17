@@ -66,6 +66,8 @@ class LonelyMeetingExperience extends PureComponent<Props> {
      * @inheritdoc
      */
     render() {
+        return null;
+      /*
         const { _isInviteFunctionsDiabled, _isLonelyMeeting, _styles, t } = this.props;
 
         if (!_isLonelyMeeting) {
@@ -103,6 +105,7 @@ class LonelyMeetingExperience extends PureComponent<Props> {
                 ) }
             </View>
         );
+      */
     }
 
     _onPress: () => void;
