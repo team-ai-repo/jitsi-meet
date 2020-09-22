@@ -26,6 +26,7 @@ import type { AbstractProps } from '../AbstractConference';
 
 import Labels from './Labels';
 import { default as Notice } from './Notice';
+import { hideNotification } from '../../../notifications';
 
 declare var APP: Object;
 declare var config: Object;
@@ -178,8 +179,14 @@ class Conference extends AbstractConference<Props, *> {
         const {
             // XXX The character casing of the name filmStripOnly utilized by
             // interfaceConfig is obsolete but legacy support is required.
-            filmStripOnly: filmstripOnly
+            filmStripOnly: filmstripOnly,
+            hideToolbar: hideToolbar,
+            hideNotifications: hideNotifications,
+            hideChat: hideChat
         } = interfaceConfig;
+
+        console.log("INTERFACE CONFIG", interfaceConfig);
+
         const {
             _iAmRecorder,
             _isLobbyScreenVisible,
@@ -202,13 +209,13 @@ class Conference extends AbstractConference<Props, *> {
                     {hideLabels || <Labels />}
                 </div>
 
-                {/* { filmstripOnly || _showPrejoin || _isLobbyScreenVisible || <Toolbox /> } */}
+                { !hideToolbar && (filmstripOnly || _showPrejoin || _isLobbyScreenVisible || <Toolbox />)}
 
-                {/* { filmstripOnly || <Chat /> } */}
+                { !hideChat && (filmstripOnly || <Chat />)}
 
-                { this.renderNotificationsContainer()}
+                { !hideNotifications && this.renderNotificationsContainer()}
 
-                <CalleeInfoContainer />
+                < CalleeInfoContainer />
 
                 {/* { !filmstripOnly && _showPrejoin && <Prejoin />} */}
             </div>

@@ -55,5 +55,10 @@ export default [
     'VERTICAL_FILMSTRIP',
     'VIDEO_LAYOUT_FIT',
     'VIDEO_QUALITY_LABEL_DISABLED',
-    'filmStripOnly'
+    'filmStripOnly',
+    'hideToolbar',
+    'hideWatermarks',
+    'hideInviteMore',
+    'hideChat',
+    'hideNotifications'
 ];

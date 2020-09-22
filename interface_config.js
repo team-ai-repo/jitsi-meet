@@ -84,7 +84,7 @@ var interfaceConfig = {
      * Whether or not the blurred video background for large video should be
      * displayed on browsers that can support it.
      */
-    DISABLE_VIDEO_BACKGROUND: false,
+    DISABLE_VIDEO_BACKGROUND: true,
 
     DISPLAY_WELCOME_PAGE_CONTENT: true,
     DISPLAY_WELCOME_PAGE_TOOLBAR_ADDITIONAL_CONTENT: false,
@@ -99,6 +99,15 @@ var interfaceConfig = {
      * Whether to only show the filmstrip (and hide the toolbar).
      */
     filmStripOnly: false,
+
+    /**
+     * Whether to hide the toolbar.
+     */
+    hideToolbar: true,
+    hideWatermarks: false,
+    hideInviteMore: false,
+    hideChat: false,
+    hideNotifications: false,
 
     GENERATE_ROOMNAMES_ON_WELCOME_PAGE: true,
 
@@ -142,7 +151,7 @@ var interfaceConfig = {
     // has a suboptimal experience. Browsers which are not listed as optimal or
     // unsupported are considered suboptimal. Valid values are:
     // chrome, chromium, edge, electron, firefox, nwjs, opera, safari
-    OPTIMAL_BROWSERS: [ 'chrome', 'chromium', 'firefox', 'nwjs', 'electron', 'safari' ],
+    OPTIMAL_BROWSERS: ['chrome', 'chromium', 'firefox', 'nwjs', 'electron', 'safari'],
 
     POLICY_LOGO: null,
     PROVIDER_NAME: 'Jitsi',
@@ -155,7 +164,7 @@ var interfaceConfig = {
     RECENT_LIST_ENABLED: true,
     REMOTE_THUMBNAIL_RATIO: 1, // 1:1
 
-    SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'profile', 'calendar' ],
+    SETTINGS_SECTIONS: ['devices', 'language', 'moderator', 'profile', 'calendar'],
     SHOW_BRAND_WATERMARK: false,
 
     /**
