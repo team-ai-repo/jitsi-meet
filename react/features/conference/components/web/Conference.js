@@ -178,7 +178,10 @@ class Conference extends AbstractConference<Props, *> {
         const {
             // XXX The character casing of the name filmStripOnly utilized by
             // interfaceConfig is obsolete but legacy support is required.
-            filmStripOnly: filmstripOnly
+            filmStripOnly: filmstripOnly,
+            hideToolbar: hideToolbar,
+            hideNotifications: hideNotifications,
+            hideChat: hideChat
         } = interfaceConfig;
         const {
             _iAmRecorder,
@@ -202,10 +205,11 @@ class Conference extends AbstractConference<Props, *> {
                     { hideLabels || <Labels /> }
                 </div>
 
-                { filmstripOnly || _showPrejoin || _isLobbyScreenVisible || <Toolbox /> }
-                { filmstripOnly || <Chat /> }
+                { !hideToolbar && (filmstripOnly || _showPrejoin || _isLobbyScreenVisible || <Toolbox />)}
 
-                { this.renderNotificationsContainer() }
+                { !hideChat && (filmstripOnly || <Chat />)}
+
+                { !hideNotifications && this.renderNotificationsContainer()}
 
                 <CalleeInfoContainer />
 
