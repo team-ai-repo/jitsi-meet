@@ -164,8 +164,9 @@ MiddlewareRegistry.register(({ dispatch, getState }) => next => action => {
                     dispatch(showRecordingLimitNotification(mode));
                 }
 
-
                 sendAnalytics(createRecordingEvent('start', mode));
+
+                typeof APP === 'object' && APP.API.notifyRecordingStatusChanged(true, mode);
 
                 if (disableRecordAudioNotification) {
                     break;
@@ -192,7 +193,10 @@ MiddlewareRegistry.register(({ dispatch, getState }) => next => action => {
                     duration
                         = (Date.now() / 1000) - oldSessionData.timestamp;
                 }
+
                 sendAnalytics(createRecordingEvent('stop', mode, duration));
+
+                typeof APP === 'object' && APP.API.notifyRecordingStatusChanged(false, mode);
 
                 if (disableRecordAudioNotification) {
                     break;
