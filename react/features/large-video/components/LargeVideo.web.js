@@ -70,14 +70,18 @@ class LargeVideo extends Component<Props> {
                 className = { className }
                 id = 'largeVideoContainer'
                 style = { style }>
+
                 <Subject />
-                <InviteMore />
+
+                {!interfaceConfig.hideInviteMore && <InviteMore />}
+
                 <div id = 'sharedVideo'>
                     <div id = 'sharedVideoIFrame' />
                 </div>
+
                 <div id = 'etherpad' />
 
-                <Watermarks />
+                {!interfaceConfig.hideWatermarks && <Watermarks />}
 
                 <div id = 'dominantSpeaker'>
                     <div className = 'dynamic-shadow' />
