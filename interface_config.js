@@ -100,6 +100,15 @@ var interfaceConfig = {
      */
     filmStripOnly: false,
 
+    /**
+     * Jitsi interface hiding options.
+     */
+    hideToolbar: true,
+    hideWatermarks: false,
+    hideInviteMore: false,
+    hideChat: false,
+    hideNotifications: false,
+
     GENERATE_ROOMNAMES_ON_WELCOME_PAGE: true,
 
     /**
