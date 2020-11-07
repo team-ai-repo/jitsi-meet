@@ -1052,6 +1052,32 @@ class API {
                 onDesktopSharingEnabledChanged);
         }
     }
+
+    /**
+     * Notify external application (if API is enabled) that recording has started.
+     *
+     *@param {string} mode - Stream or file.
+     * @returns {void}
+     */
+    notifyRecordingStarted(mode: string) {
+        this._sendEvent({
+            name: 'recording-started',
+            mode
+        });
+    }
+
+    /**
+     * Notify external application (if API is enabled) that recording has stopped.
+     *
+     *@param {string} mode - Stream or file.
+     * @returns {void}
+     */
+    notifyRecordingStopped(mode: string) {
+        this._sendEvent({
+            name: 'recording-stopped',
+            mode
+        });
+    }
 }
 
 export default new API();
