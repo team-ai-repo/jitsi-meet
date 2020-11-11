@@ -6,7 +6,7 @@ import {
     KICKED_OUT
 } from '../base/conference';
 import { NOTIFY_CAMERA_ERROR, NOTIFY_MIC_ERROR } from '../base/devices';
-import { JitsiConferenceErrors } from '../base/lib-jitsi-meet';
+import { JitsiRecordingConstants, JitsiConferenceErrors,  } from '../base/lib-jitsi-meet';
 import {
     DOMINANT_SPEAKER_CHANGED,
     PARTICIPANT_KICKED,
@@ -17,6 +17,7 @@ import {
     getLocalParticipant,
     getParticipantById
 } from '../base/participants';
+import { getActiveSession } from '../../features/recording/functions';
 import { MiddlewareRegistry } from '../base/redux';
 import { getBaseUrl } from '../base/util';
 import { appendSuffix } from '../display-name';
@@ -85,7 +86,10 @@ MiddlewareRegistry.register(store => next => action => {
 
     case CONFERENCE_JOINED: {
         const state = store.getState();
+
         const { room } = state['features/base/conference'];
+        const isRecordingOn = Boolean(getActiveSession(state, JitsiRecordingConstants.mode.FILE));
+        
         const { loadableAvatarUrl, name, id } = getLocalParticipant(state);
 
         APP.API.notifyConferenceJoined(
@@ -97,7 +101,8 @@ MiddlewareRegistry.register(store => next => action => {
                     name,
                     interfaceConfig.DEFAULT_LOCAL_DISPLAY_NAME
                 ),
-                avatarURL: loadableAvatarUrl
+                avatarURL: loadableAvatarUrl,
+                isRecordingOn: isRecordingOn
             }
         );
         break;

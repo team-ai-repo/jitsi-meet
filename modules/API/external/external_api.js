@@ -1060,4 +1060,5 @@ export default class JitsiMeetExternalAPI extends EventEmitter {
     _getElectronPopupsConfig() {
         return Promise.resolve(electronPopupsConfig);
     }
+    
 }
