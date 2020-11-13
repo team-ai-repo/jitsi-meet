@@ -1078,6 +1078,19 @@ class API {
             mode
         });
     }
+
+    /**
+     * Send notification to external application
+     *
+     *@param {Object} props - Notification object.
+     * @returns {void}
+     */
+    notifyExternal(props: Object = {}) {
+        this._sendEvent({
+            name: 'notification-raised',
+            props
+        });
+    }
 }
 
 export default new API();

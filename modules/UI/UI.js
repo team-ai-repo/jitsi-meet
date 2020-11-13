@@ -161,7 +161,7 @@ UI.start = function() {
         $('body').addClass('desktop-browser');
     }
 
-    if (interfaceConfig.filmStripOnly) {
+    if (interfaceConfig.filmStripOnly || interfaceConfig.hideNotifications) {
         $('body').addClass('filmstrip-only');
         APP.store.dispatch(setNotificationsEnabled(false));
     } else if (config.iAmRecorder) {

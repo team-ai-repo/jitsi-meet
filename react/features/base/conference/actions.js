@@ -66,8 +66,6 @@ import {
 } from './functions';
 import logger from './logger';
 
-declare var APP: Object;
-
 /**
  * Adds conference (event) listeners.
  *

@@ -92,7 +92,8 @@ const events = {
     'suspend-detected': 'suspendDetected',
     'tile-view-changed': 'tileViewChanged',
     'recording-started': 'recordingStarted',
-    'recording-stopped': 'recordingStopped'
+    'recording-stopped': 'recordingStopped',
+    'notification-raised': 'notificationRaised'
 };
 
 /**

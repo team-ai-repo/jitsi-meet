@@ -2,7 +2,6 @@
 
 import throttle from 'lodash/throttle';
 import type { Dispatch } from 'redux';
-
 import {
     CLEAR_NOTIFICATIONS,
     HIDE_NOTIFICATION,
@@ -10,6 +9,11 @@ import {
     SHOW_NOTIFICATION
 } from './actionTypes';
 import { NOTIFICATION_TIMEOUT, NOTIFICATION_TYPE } from './constants';
+
+import { i18next } from '../base/i18n';
+
+declare var APP: Object;
+declare var interfaceConfig: Object;
 
 /**
  * Clears (removes) all the notifications.
@@ -84,6 +88,15 @@ export function showErrorNotification(props: Object) {
  * }}
  */
 export function showNotification(props: Object = {}, timeout: ?number) {
+    if (typeof APP !== undefined) {
+        const notificationProps = {
+            type: props.appearance || 'default',
+            title: props.title || i18next.t(props.titleKey, props.titleArguments),
+            description: props.description || i18next.t(props.descriptionKey, props.descriptionArguments)
+        }
+
+        APP.API.notifyExternal(notificationProps);
+    }
     return {
         type: SHOW_NOTIFICATION,
         props,
