@@ -93,6 +93,7 @@ const events = {
     'tile-view-changed': 'tileViewChanged',
     'recording-started': 'recordingStarted',
     'recording-stopped': 'recordingStopped',
+    'recording-error': 'recordingError',
     'notification-raised': 'notificationRaised'
 };
 

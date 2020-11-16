@@ -1080,6 +1080,18 @@ class API {
     }
 
     /**
+     * Notify external application (if API is enabled) that recording failed.
+     *
+     * @returns {void}
+     */
+    notifyRecordingError(error: string) {
+        this._sendEvent({
+            name: 'recording-error',
+            error
+        });
+    }
+
+    /**
      * Send notification to external application
      *
      *@param {Object} props - Notification object.

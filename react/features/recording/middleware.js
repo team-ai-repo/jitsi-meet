@@ -45,6 +45,7 @@ import {
     RECORDING_ON_SOUND_FILE
 } from './sounds';
 
+declare var APP: Object;
 declare var interfaceConfig: Object;
 
 /**
@@ -253,6 +254,9 @@ function _showRecordingErrorNotification(recorderSession, dispatch) {
                 ? 'liveStreaming.unavailableTitle'
                 : 'recording.unavailableTitle'
         }));
+
+        APP.API.notifyRecordingError('recording.unavailable');
+
         break;
     case JitsiMeetJS.constants.recording.error.RESOURCE_CONSTRAINT:
         dispatch(showRecordingError({
@@ -263,6 +267,9 @@ function _showRecordingErrorNotification(recorderSession, dispatch) {
                 ? 'liveStreaming.busyTitle'
                 : 'recording.busyTitle'
         }));
+
+        APP.API.notifyRecordingError('recording.busy');
+
         break;
     default:
         dispatch(showRecordingError({
@@ -273,6 +280,9 @@ function _showRecordingErrorNotification(recorderSession, dispatch) {
                 ? 'liveStreaming.failedToStart'
                 : 'recording.failedToStart'
         }));
+
+        APP.API.notifyRecordingError('recording.failedToStart');
+
         break;
     }
 }
