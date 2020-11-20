@@ -41,6 +41,11 @@
     background: none;
 }
 
+.tOoji {
+    background: none !important;
+    background-color: transparent !important;
+}
+
 /**
  * Override @atlaskit/InlineDialog styling for the overflowmenu so it displays
  * with the correct height.
