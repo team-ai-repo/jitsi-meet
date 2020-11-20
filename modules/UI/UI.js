@@ -161,9 +161,12 @@ UI.start = function() {
         $('body').addClass('desktop-browser');
     }
 
-    if (interfaceConfig.filmStripOnly || interfaceConfig.hideNotifications) {
-        $('body').addClass('filmstrip-only');
+    if (interfaceConfig.hideNotifications) {
         APP.store.dispatch(setNotificationsEnabled(false));
+    }
+
+    if (interfaceConfig.filmStripOnly) {
+        $('body').addClass('filmstrip-only');
     } else if (config.iAmRecorder) {
         // in case of iAmSipGateway keep local video visible
         if (!config.iAmSipGateway) {
