@@ -7,8 +7,8 @@
       "platform": "chromeos_play"
     }
   ],
-  "short_name": "Jitsi Meet",
-  "name": "Jitsi Meet",
+  "short_name": "team.ai",
+  "name": "team.ai",
   "icons": [
     {
       "src": "icons/icon192.png",
