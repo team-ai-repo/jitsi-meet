@@ -86,9 +86,12 @@ MiddlewareRegistry.register(store => next => action => {
 
     case CONFERENCE_JOINED: {
         const state = store.getState();
+        const { status: statusConstants } = JitsiRecordingConstants;
 
         const { room } = state['features/base/conference'];
-        const isRecordingOn = Boolean(getActiveSession(state, JitsiRecordingConstants.mode.FILE));
+
+        const activeSession = getActiveSession(state, JitsiRecordingConstants.mode.FILE);
+        const recordingStatusString = activeSession.status === statusConstants.ON ? "ON" : activeSession.status === statusConstants.PENDING ? "PENDING" : "OFF";
         
         const { loadableAvatarUrl, name, id } = getLocalParticipant(state);
 
@@ -102,7 +105,7 @@ MiddlewareRegistry.register(store => next => action => {
                     interfaceConfig.DEFAULT_LOCAL_DISPLAY_NAME
                 ),
                 avatarURL: loadableAvatarUrl,
-                isRecordingOn: isRecordingOn
+                recordingStatus: recordingStatusString
             }
         );
         break;
