@@ -86,12 +86,18 @@ MiddlewareRegistry.register(store => next => action => {
 
     case CONFERENCE_JOINED: {
         const state = store.getState();
-        const { status: statusConstants } = JitsiRecordingConstants;
-
+        
         const { room } = state['features/base/conference'];
 
         const activeSession = getActiveSession(state, JitsiRecordingConstants.mode.FILE);
-        const recordingStatusString = activeSession.status === statusConstants.ON ? "ON" : activeSession.status === statusConstants.PENDING ? "PENDING" : "OFF";
+        console.log("ACTIVE SESSION", activeSession);
+
+        const isRecordingOn = Boolean(activeSession);
+
+        const recordingStatusString = isRecordingOn ? 
+            activeSession.status === JitsiRecordingConstants.status.ON ? "ON" : 
+                activeSession.status === JitsiRecordingConstants.status.PENDING ? "PENDING" : "OFF" 
+            : "OFF";
         
         const { loadableAvatarUrl, name, id } = getLocalParticipant(state);
 
