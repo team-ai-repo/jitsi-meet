@@ -22,6 +22,9 @@ end
 
 log("info", "Starting speakerstats for %s", muc_component_host);
 
+local requestURL = module:get_option_string("speakerstats_post_url"); 
+log("info", "Post speakerstats url: %s", requestURL);
+
 -- receives messages from client currently connected to the room
 -- clients indicates their own dominant speaker events
 function on_message(event)
@@ -209,7 +212,7 @@ function room_destroyed(event)
         return;
     end
 
-    ext_events.speaker_stats(room, room.speakerStats);
+    ext_events.speaker_stats(room, room.speakerStats, requestURL);
 end
 
 module:hook("message/host", on_message);
