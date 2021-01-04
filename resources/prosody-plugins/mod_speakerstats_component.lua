@@ -143,7 +143,7 @@ function occupant_joined(event)
             for jid, values in pairs(room.speakerStats) do
                 -- skip reporting those without a nick('dominantSpeakerId')
                 -- and skip focus if sneaked into the table
-                if values.nick ~= nil and values.nick ~= 'focus' then
+                if values.nick ~= nil and values.nick ~= 'focus' and values.nick ~= 'recorder' then
                     local resultSpeakerStats = {};
                     local totalDominantSpeakerTime
                         = values.totalDominantSpeakerTime;
