@@ -411,6 +411,11 @@ function initCommands() {
         case 'is-sharing-screen':
             callback(Boolean(APP.conference.isSharingScreen));
             break;
+        case 'get-speaker-stats':
+            console.log("API - get-speaker-stats");
+            console.log("API - speaker stats", APP.conference.getSpeakerStats());
+            callback(APP.conference.getSpeakerStats());
+            break;
         default:
             return false;
         }

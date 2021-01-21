@@ -1062,5 +1062,17 @@ export default class JitsiMeetExternalAPI extends EventEmitter {
     _getElectronPopupsConfig() {
         return Promise.resolve(electronPopupsConfig);
     }
+
+    /**
+     * Returns conference speaker stats.
+     * 
+     * @returns {Promise<Object>} Resolves with speaker stats and rejects on failure
+     */
+    getSpeakerStats() {
+        console.log("CALL external_api - getSpeakerStats");
+        return this._transport.sendRequest({
+            name: 'get-speaker-stats'
+        });
+    }
     
 }
