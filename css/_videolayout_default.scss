@@ -266,7 +266,7 @@
     position: absolute;
     left: 10%;
     width: 80%;
-    top: 50%;
+    bottom: 0;
     @include transform(translateY(-40%));
     color: $participantNameColor;
     text-align: center;
@@ -306,6 +306,7 @@
 .videocontainer .displayname {
     pointer-events: none;
     padding: 0 3px 0 3px;
+    background: rgba(0,0,0,.6);
 }
 
 .videocontainer .editdisplayname {
@@ -647,7 +648,7 @@
     }
 
     .displayNameContainer {
-        visibility: hidden;
+        visibility: visible;
     }
 
     .videocontainer__hoverOverlay {
@@ -683,7 +684,7 @@
     }
 
     .displayNameContainer {
-        visibility: hidden;
+        visibility: visible;
     }
 
     .videocontainer__hoverOverlay {
